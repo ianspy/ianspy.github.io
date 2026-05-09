@@ -91,6 +91,10 @@ const tabs: Tab[] = [
         title: '一张画板一张画纸，另一个角度入门数据可视化，神器matplotlib基础教程【数据可视化】',
         url: 'https://mp.weixin.qq.com/s?__biz=MzkzMTk3NzQxMg==&mid=2247484962&idx=1&sn=54608417122bab700c66b316f65a32b5&chksm=c2638789f5140e9fb917707c81f1930c6775e41ce5927cff1a749fb3c93012ac43e4d5a147b6&token=1954277734&lang=zh_CN#rd'
       },
+    {
+        title: 'Pairwise Data成对数据绘图，matplotlib全精通~【数据可视化】',
+        url: 'https://mp.weixin.qq.com/s/01hoRztITv43QlllwW808g'
+      }, 
   ] },
 
   { id: 'datastructure', label: 'Python数据结构', shortLabel: '数据结构', articles: [
