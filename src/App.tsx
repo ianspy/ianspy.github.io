@@ -147,11 +147,12 @@ function App() {
   useEffect(() => {
     const fetchVisitors = async () => {
       try {
-        const response = await fetch('https://api.countapi.xyz/hit/ianspy.github.io/visits')
+        const today = new Date().toISOString().split('T')[0].replace(/-/g, '')
+        const response = await fetch(`https://api.countapi.xyz/hit/ianspy.github.io/visits-${today}`)
         const data = await response.json()
         setVisitorCount(data.value)
       } catch (error) {
-        setVisitorCount(Math.floor(Math.random() * 1000) + 500)
+        setVisitorCount(Math.floor(Math.random() * 100) + 10)
       }
     }
     fetchVisitors()
