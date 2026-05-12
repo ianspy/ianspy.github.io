@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import profilePicture from './assets/profile_picture.png'
 
+// Deployment trigger: updated on 2026-05-12
+
 interface Article {
   title: string
   url: string
