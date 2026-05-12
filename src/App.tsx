@@ -217,8 +217,8 @@ function App() {
           {/* 访客数量统计框 */}
           <div className="visitor-card">
             <div className="visitor-info">
-              <div className="visitor-label">今日访问</div>
-              <div className="visitor-count">{visitorCount !== null ? `${visitorCount} 人` : '加载中...'}</div>
+              <span className="visitor-label">今日访问</span>
+              <span className="visitor-count">{visitorCount !== null ? `${visitorCount} 人` : '加载中...'}</span>
             </div>
           </div>
         </aside>
