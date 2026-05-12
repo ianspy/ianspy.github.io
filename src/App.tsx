@@ -140,6 +140,9 @@ const tabs: Tab[] = [
 function App() {
   const [activeTab, setActiveTab] = useState(tabs[0].id)
   const [visitorCount, setVisitorCount] = useState<number | null>(null)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState<{title: string; url: string; tab: string}[]>([])
 
   const activeTabData = tabs.find(tab => tab.id === activeTab)
   const totalArticles = tabs.reduce((sum, tab) => sum + tab.articles.length, 0)
@@ -158,6 +161,29 @@ function App() {
     fetchVisitors()
   }, [])
 
+  const handleSearch = (query: string) => {
+    setSearchQuery(query)
+    if (!query.trim()) {
+      setSearchResults([])
+      return
+    }
+    const results: {title: string; url: string; tab: string}[] = []
+    tabs.forEach(tab => {
+      tab.articles.forEach(article => {
+        if (article.title.toLowerCase().includes(query.toLowerCase())) {
+          results.push({title: article.title, url: article.url, tab: tab.label})
+        }
+      })
+    })
+    setSearchResults(results)
+  }
+
+  const clearSearch = () => {
+    setSearchQuery('')
+    setSearchResults([])
+    setSearchOpen(false)
+  }
+
   return (
     <div className="github-layout">
       {/* 顶部导航栏 */}
@@ -174,8 +200,58 @@ function App() {
           </nav>
           {/* 中间占位 */}
           <nav className="center-nav"></nav>
-          {/* 右侧占位 */}
-          <div className="right-nav"></div>
+          {/* 右侧搜索 */}
+          <div className="right-nav">
+            <div className={`search-container ${searchOpen ? 'open' : ''}`}>
+              <button 
+                className="search-icon-btn" 
+                onClick={() => setSearchOpen(!searchOpen)}
+                onMouseEnter={() => setSearchOpen(true)}
+              >
+                <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+              <div className="search-box-wrapper">
+                <input 
+                  type="text" 
+                  className="search-input" 
+                  placeholder="搜索文章..."
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  onBlur={() => setTimeout(() => setSearchOpen(false), 200)}
+                  onFocus={() => setSearchOpen(true)}
+                />
+                {searchQuery && (
+                  <button className="search-clear-btn" onClick={clearSearch}>
+                    <svg height="14" viewBox="0 0 24 24" width="14" fill="currentColor">
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                  </button>
+                )}
+              </div>
+              {searchOpen && searchResults.length > 0 && (
+                <div className="search-results">
+                  {searchResults.slice(0, 5).map((result, index) => (
+                    <a 
+                      key={index} 
+                      href={result.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="search-result-item"
+                      onClick={clearSearch}
+                    >
+                      <span className="result-title">{result.title}</span>
+                      <span className="result-tab">{result.tab}</span>
+                    </a>
+                  ))}
+                  {searchResults.length > 5 && (
+                    <div className="search-more">还有 {searchResults.length - 5} 条结果...</div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </header>
 
