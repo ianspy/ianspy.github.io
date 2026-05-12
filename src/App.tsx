@@ -215,12 +215,14 @@ function App() {
           </div>
           
           {/* 访客数量统计框 */}
-          <div className="visitor-card">
-            <div className="visitor-info">
-              <span className="visitor-label">今日访问</span>
-              <span className="visitor-count">{visitorCount !== null ? `${visitorCount} 人` : '加载中...'}</span>
+          {visitorCount !== null && (
+            <div className="visitor-card">
+              <div className="visitor-info">
+                <span className="visitor-label">今日访问</span>
+                <span className="visitor-count">{visitorCount} 人</span>
+              </div>
             </div>
-          </div>
+          )}
         </aside>
 
         {/* 右侧主内容区 */}
