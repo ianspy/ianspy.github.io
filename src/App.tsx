@@ -140,6 +140,7 @@ const tabs: Tab[] = [
 function App() {
   const [activeTab, setActiveTab] = useState(tabs[0].id)
   const [visitorCount, setVisitorCount] = useState(0)
+  const [displayCount, setDisplayCount] = useState(0)
 
   const activeTabData = tabs.find(tab => tab.id === activeTab)
   const totalArticles = tabs.reduce((sum, tab) => sum + tab.articles.length, 0)
@@ -157,6 +158,24 @@ function App() {
     }
     fetchVisitors()
   }, [])
+
+  useEffect(() => {
+    if (visitorCount === 0) return
+    const duration = 1000
+    const steps = 20
+    const increment = visitorCount / steps
+    let current = 0
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= visitorCount) {
+        setDisplayCount(visitorCount)
+        clearInterval(timer)
+      } else {
+        setDisplayCount(Math.floor(current))
+      }
+    }, duration / steps)
+    return () => clearInterval(timer)
+  }, [visitorCount])
 
   return (
     <div className="github-layout">
@@ -218,7 +237,7 @@ function App() {
           <div className="visitor-card">
             <div className="visitor-info">
               <div className="visitor-label">今日访问</div>
-              <div className="visitor-count">{visitorCount} 人</div>
+              <div className="visitor-count">{displayCount} 人</div>
             </div>
           </div>
         </aside>
