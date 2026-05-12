@@ -65,6 +65,56 @@
   transform: translateY(-8px);
 }
 
+/* 访客统计卡片 */
+.visitor-card {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(27, 31, 36, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.visitor-card:hover {
+  box-shadow: 0 8px 24px rgba(27, 31, 36, 0.15);
+  transform: translateY(-4px);
+}
+
+.visitor-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #0969da 0%, #2f81f7 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.visitor-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.visitor-count {
+  font-size: 24px;
+  font-weight: 700;
+  color: #24292f;
+  line-height: 1.2;
+}
+
+.visitor-label {
+  font-size: 12px;
+  color: #57606a;
+  margin-top: 2px;
+}
+
 .profile-avatar-large {
   width: 120px;
   height: 120px;
