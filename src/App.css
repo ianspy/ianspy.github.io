@@ -453,8 +453,8 @@
   color: #24292f;
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(9, 105, 218, 0.4);
-  transform: translateY(-12px);
-  box-shadow: 0 22px 44px rgba(27, 31, 36, 0.25);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(27, 31, 36, 0.22);
   z-index: 100;
 }
 
