@@ -305,7 +305,6 @@ function App() {
           <nav className="bookmark-tabs">
             <div className="tabs-container">
               {tabs.map(tab => {
-                const previewText = tab.label.slice(0, 4)
                 return (
                   <button
                     key={tab.id}
@@ -314,7 +313,7 @@ function App() {
                     title={tab.label}
                     data-full={tab.label}
                   >
-                    <span className="tab-short">{previewText}<span className="article-count">{tab.articles.length}</span></span>
+                    <span className="tab-short">{tab.shortLabel}<span className="article-count">{tab.articles.length}</span></span>
                     <span className="tab-full-wrapper">
                       <span className="tab-full">{tab.label}<span className="article-count">{tab.articles.length}</span></span>
                     </span>
