@@ -447,16 +447,6 @@
   display: none;
 }
 
-.bookmark-tab:hover .tab-full {
-  display: inline;
-}
-
-/* 选中展开 */
-.bookmark-tab.active {
-  max-width: 380px;
-  z-index: 50;
-}
-
 /* 玻璃框悬浮效果 - 原地悬浮 + 完整文字覆盖 */
 .bookmark-tab:hover {
   color: #24292f;
