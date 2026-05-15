@@ -399,10 +399,19 @@
 
 .bookmark-tab .tab-short {
   display: inline;
+  transition: opacity 0.2s ease;
 }
 
 .bookmark-tab .tab-full {
   display: none;
+}
+
+/* 完整文字覆盖层容器 */
+.tab-full-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(-4px) scale(0.95);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 文章数量徽章 */
@@ -453,8 +462,8 @@
   color: #24292f;
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(9, 105, 218, 0.4);
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(27, 31, 36, 0.22);
+  transform: translateY(-16px);
+  box-shadow: 0 22px 44px rgba(27, 31, 36, 0.25);
   z-index: 100;
 }
 
@@ -465,7 +474,9 @@
   position: absolute;
   top: -8px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
   padding: 10px 16px;
   background: rgba(255, 255, 255, 0.99);
   border: 1px solid rgba(9, 105, 218, 0.3);
