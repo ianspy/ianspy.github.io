@@ -395,10 +395,7 @@
   text-align: center;
 }
 
-/* 移除第一个标签的特殊内边距 */
-.bookmark-tab:first-child {
-  padding-left: 16px;
-}
+
 
 .bookmark-tab .tab-short {
   display: inline;
@@ -466,9 +463,9 @@
   display: flex;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: -8px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   padding: 10px 16px;
   background: rgba(255, 255, 255, 0.99);
   border: 1px solid rgba(9, 105, 218, 0.3);
