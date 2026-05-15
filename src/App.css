@@ -437,24 +437,19 @@
   background-color: rgba(175, 184, 193, 0.5);
 }
 
-/* 悬停展开 */
-.bookmark-tab:hover {
-  max-width: 380px;
-  z-index: 100;
-}
-
-.bookmark-tab:hover .tab-short {
-  display: none;
-}
-
-/* 玻璃框悬浮效果 - 原地悬浮 + 完整文字覆盖 */
+/* 玻璃框悬浮效果 */
 .bookmark-tab:hover {
   color: #24292f;
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(9, 105, 218, 0.4);
-  transform: translateY(-16px);
-  box-shadow: 0 22px 44px rgba(27, 31, 36, 0.25);
+  transform: translateY(-12px);
+  box-shadow: 0 16px 32px rgba(27, 31, 36, 0.22);
   z-index: 100;
+}
+
+/* 完整文字覆盖层容器 */
+.tab-full-wrapper {
+  display: none;
 }
 
 /* 悬停时显示完整文字覆盖层 */
@@ -464,9 +459,7 @@
   position: absolute;
   top: -8px;
   left: 50%;
-  transform: translateX(-50%) translateY(0) scale(1);
-  opacity: 1;
-  visibility: visible;
+  transform: translateX(-50%);
   padding: 10px 16px;
   background: rgba(255, 255, 255, 0.99);
   border: 1px solid rgba(9, 105, 218, 0.3);
@@ -478,42 +471,16 @@
 
 /* 悬停时隐藏短文字 */
 .bookmark-tab:hover .tab-short {
-  opacity: 0;
-}
-
-/* 完整文字覆盖层容器 */
-.tab-full-wrapper {
   display: none;
 }
 
+/* 选中状态 */
 .bookmark-tab.active {
   color: #24292f;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(9, 105, 218, 0.5);
   box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.2);
-}
-
-/* 只有悬停时才显示完整文字覆盖层 */
-.bookmark-tab:hover .tab-full-wrapper {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.99);
-  border: 1px solid rgba(9, 105, 218, 0.3);
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(27, 31, 36, 0.15);
-  white-space: nowrap;
-  z-index: 101;
-}
-
-/* 只有悬停时才隐藏短文字 */
-.bookmark-tab:hover .tab-short {
-  opacity: 0;
 }
 
 /* 暗色模式适配 */
