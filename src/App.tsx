@@ -312,9 +312,12 @@ function App() {
                     className={`bookmark-tab ${activeTab === tab.id ? 'active' : ''}`}
                     onClick={() => setActiveTab(tab.id)}
                     title={tab.label}
+                    data-full={tab.label}
                   >
                     <span className="tab-short">{previewText}<span className="article-count">{tab.articles.length}</span></span>
-                    <span className="tab-full">{tab.label}<span className="article-count">{tab.articles.length}</span></span>
+                    <span className="tab-full-wrapper">
+                      <span className="tab-full">{tab.label}<span className="article-count">{tab.articles.length}</span></span>
+                    </span>
                   </button>
                 )
               })}
