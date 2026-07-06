@@ -129,7 +129,7 @@ const tabs: Tab[] = [
       url: 'https://mp.weixin.qq.com/s?__biz=MzkzMTk3NzQxMg==&mid=2247484195&idx=1&sn=4afbb5b6c0f616467fe7927aeba4ab37&chksm=c2638288f5140b9e8503b7efcc259b2cefa09324d94320ae7bebd07aadf22ebd70f98b2b4393&token=1954277734&lang=zh_CN#rd'
     }
   ] },
-  { id: 'ai', label: 'Python AI', shortLabel: '小软件', articles: [
+  { id: 'ai', label: 'Python AI', shortLabel: 'AI', articles: [
     {
       title: 'AI大模型，我的身后，是千军万马！！',
       url: 'https://mp.weixin.qq.com/s/shq2QSUfiP64Tcynz81mpw?token=1954277734&lang=zh_CN'
