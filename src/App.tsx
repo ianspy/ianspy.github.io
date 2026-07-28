@@ -101,6 +101,10 @@ const tabs: Tab[] = [
         title: '别再被导师说回去重画图表了！Matplotlib 论文级三维数据(3D)可视化绘制（一）【数据可视化】',
         url: 'https://mp.weixin.qq.com/s/ZQhdpb4nd0QZTBKjN0WSVA'
       }, 
+    {
+        title: '别再被导师说回去重画图表了！Matplotlib 论文级三维数据(3D)可视化绘制（二）【数据可视化】',
+        url: 'https://mp.weixin.qq.com/s/bHgBuyna7Fy7B2-4Cj4Isw'
+      }, 
   ] },
 
   { id: 'datastructure', label: 'Python数据结构', shortLabel: '数据结构', articles: [
